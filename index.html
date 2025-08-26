@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body{
+            font: 17px Arial;
+        }
+        input[type=number]{
+            padding: 3px;
+            width:55px ;
+        }
+        div#res{
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Simples codigo usando HTML, CSS e JS, calculando a velocidade e mostrando condições com if/else -->
+    <h1>Sistemas de Multas</h1>
+    <p>Velocidade permitida <strong>60km/m</strong></p>
+    <p>Velocidade do carro: <input type="number" name="txtvel" id="txtvel" placeholder="0km"> km/m</p>
+    <div>
+        <input type="button" value="Verificar" onclick="verificar()">
+    </div>
+    <div id="res">
+
+    </div>
+
+    <script>
+        function verificar(){
+
+        var txtv = Number(document.querySelector('input#txtvel').value)
+        
+        var res = document.querySelector('div#res')
+        res.innerHTML = `Você estava à <strong>${txtv}km/m</strong> ?`
+        if (txtv > 60){
+            res.innerHTML += `<p>Você foi <strong>MULTADO!</strong>Execesso de velovidade.</p>`
+            
+        }
+        else{
+            res.innerHTML += `<p><strong>${txtv}km/h</strong> <em>Velocidade permitida.</em>`
+        }
+        res.innerHTML += `<p>USE SEMPRE O CINTO DE SEGURANÇA!</p>`
+
+        }
+    </script>
+</body>
+</html>
